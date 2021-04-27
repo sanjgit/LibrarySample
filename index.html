@@ -1,0 +1,31 @@
+<html>
+<head>
+    <link rel="stylesheet" href="css/library.css" />
+    <script src="js/app.js" type="module"></script>
+</head>
+<body>
+    <!-- Add your own html content here, and keep JS content in JS files -->
+    <div class="float-container">
+        <div class="float-child" id="BooksLeftContainer">
+            <h5>List Of Books</h5>
+            <ul id="My-Books">
+            </ul>
+        </div>
+        <div class="float-child" id="BooksMiddleContainer">
+            <h5>Most CommonWords In The Book(Occurance)</h5>
+            <ul id="MostCommonWords">
+            </ul>
+        </div>
+        <div class="float-child" id="BooksRightContainer">
+            <h5>Search Words</h5>
+            <form class="search-form" id="Search-Form">
+                <input type="text"
+                       name="query"
+                       autocomplete="off"
+                       placeholder="Type 3 letters..." />
+            </form>
+            <ul id="Search-List"></ul>
+        </div>
+    </div>
+</body>
+</html>
