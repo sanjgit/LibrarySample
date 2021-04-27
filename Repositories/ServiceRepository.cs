@@ -19,7 +19,6 @@ namespace Library.Repositories
             try
             {
                 var session = HttpContext.Current.Session;
-                //MemoryCache memoryCache = MemoryCache.Default;
                 if (session["ListOfBooks"] == null)
                 {
 

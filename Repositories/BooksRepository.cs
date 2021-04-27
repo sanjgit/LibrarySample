@@ -16,8 +16,7 @@ namespace Library.Repositories
 {
     public class BooksRepository
     {
-        MemoryCache memoryCache = MemoryCache.Default;
-        
+        //Get books- if list of books are not in cache then we will read the directory
         public List<BookDTO> GetBooks()
         {
             try
@@ -37,6 +36,8 @@ namespace Library.Repositories
             }   
            
         }
+
+        //Get Top Common Words and store it in key value pairs
         public BookTextResult GetTopCommonWords(int fileId)
         {
             try
@@ -67,8 +68,6 @@ namespace Library.Repositories
                 var distinctWords = DistictWords(txts);
                 var topCommonWords = MostCommonWords(distinctWords, 10);
 
-                //memoryCache.Remove("BookTextCounts");           
-
                 BookTextResult bookCountResult = new BookTextResult();
                 bookCountResult.id = fileId;
                 bookCountResult.TopCommonWords = topCommonWords;
@@ -87,6 +86,8 @@ namespace Library.Repositories
             }
            
         }
+
+        // Search by file id and query string
         public List<MostCommonWords> searchByString(int fileId, string searchQuery)
         {
             try
@@ -118,6 +119,8 @@ namespace Library.Repositories
             
 
         }
+       
+        //Search query string in the list of unique words
         public List<MostCommonWords> Search(Dictionary<string,int> unqiueWords, string query)
         {
             try
@@ -136,6 +139,8 @@ namespace Library.Repositories
             }
          
         }
+        
+        //Get distict words int he file with count of occurances
         public Dictionary<string, int> DistictWords(string text)
         {
             try
@@ -165,14 +170,13 @@ namespace Library.Repositories
             }
            
         }
+
+        //Function for get top 10 most common word in the file
         public List<MostCommonWords> MostCommonWords(Dictionary<string,int> allWordsFreq, int numWords = int.MaxValue)
         {
-            //var delimiterChars = new char[] { ' ', ',', ':', '\t', '\"', '\r', '{', '}', '[', ']', '=', '/', '-', '.' };
             try
             {
                 List<MostCommonWords> topWords = new List<MostCommonWords>();
-                //string query = "que";
-                //var searcheList = allWordsFreq.Where(r => r.Key.StartsWith(query.ToLower()));
                 foreach (var elem in allWordsFreq.Where(r => r.Key.Length >= 5).OrderByDescending(a => a.Value).Take(numWords))
                 {
                     MostCommonWords mcw = new MostCommonWords();
@@ -189,6 +193,8 @@ namespace Library.Repositories
             }
             
         }
+       
+        //Function to capitalize the first letter.
         private string Capitalize(string s)
         {
             if (string.IsNullOrEmpty(s))
