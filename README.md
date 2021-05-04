@@ -1,13 +1,4 @@
-# Nlyte Software Coding Task: Library
-## Role: Senior Full Stack Developer
 
-Coding Sample based around a real-world Library; the books within it, and the words within those.
-This uses .NET/WebAPI and ES6, and provides a skeleton for candidates to fill in with their suggestions for the implementation.
-
-* These requirements (as a PDF) - https://github.com/RichTeaTime/LibrarySample/raw/main/README%20-%20Library.pdf
-* Walkthrough of a sample solution - https://youtu.be/mKYs4dp-2Bk
-
-To assist us in understanding the technical experience of candidates, we ask that you *fill in the blanks* of the simple WebAPI and ES6 project that accompanies this document. This will involve creating the architecture and implementation of both Frontend and Backend projects.
 
 The WebAPI project uses .NET Framework and C# and iisexpress to minimise dependencies on your software environment. The UI code is written using ES6, to avoid the need to compile Typescript.
 
